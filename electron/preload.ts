@@ -1,5 +1,7 @@
-import { contextBridge } from "electron";
+const { contextBridge, ipcRenderer } = require("electron");
 
-contextBridge.exposeInMainWorld("api", {
-  version: "1.0.0",
+contextBridge.exposeInMainWorld("electron", {
+  invoke: (channel: string, data?: any) => {
+  return ipcRenderer.invoke(channel, data);
+}
 });
