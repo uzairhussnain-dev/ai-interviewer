@@ -1,0 +1,13 @@
+{
+  "main": "electron/main.js",
+  "scripts": {
+    "dev:react": "npm run dev --prefix renderer",
+    "dev:electron": "electron electron/main.ts",
+    "dev": "concurrently \"npm run dev:react\" \"npm run dev:electron\""
+  },
+  "dependencies": {
+    "concurrently": "^10.0.3",
+    "electron": "^42.3.3",
+    "wait-on": "^9.0.10"
+  }
+}
